@@ -22,9 +22,283 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
-  
-  
+  <!--COUNTDOWN-->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+<script src="./jquery.flipper-responsive.js"></script>
+  <script>
+  jQuery(function ($) {
+  $('#modalFlipper').flipper('init');
+});
+</script>
 </head>
+<style>
+
+
+.flipper {
+  color: #333;
+  display: block;
+  font-size: 50px;
+  line-height: 100%;
+  padding: 0;
+  margin: 0;
+  height: 1.7em;
+}
+.flipper.flipper-invisible {
+  font-size: 0px !important;
+}
+
+.flipper-group {
+  position: relative;
+  white-space: nowrap;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+.flipper-group label {
+  position: absolute;
+  color: #fff;
+  font-size: 20%;
+  top: 100%;
+  line-height: 1em;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
+  text-align: center;
+  padding-top: .5em;
+}
+
+.flipper-digit {
+  white-space: nowrap;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  float: left;
+  height: 1.2em;
+  overflow-y: hidden;
+}
+.flipper-digit span {
+  font-size: 25%;
+}
+
+.flipper-delimiter {
+  white-space: nowrap;
+  display: block;
+  float: left;
+  padding: 0;
+  margin: 0;
+  color: #fff;
+  min-width: .1em;
+  white-space: nowrap;
+  display: block;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  line-height: 1em;
+}
+
+.digit-face {
+  display: block;
+  visibility: hidden;
+  position: relative;
+  border-radius: 0.1em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.digit-next {
+  display: block;
+  position: relative;
+  border-radius: 0.1em;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  height: 1.2em;
+  background: #fff;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.digit-top {
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  pointer-events: none;
+  overflow: hidden;
+  position: absolute;
+  background: #fff;
+  padding-top: 0.1em;
+  padding-bottom: 0;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  border-top-left-radius: 0.1em;
+  border-top-right-radius: 0.1em;
+  box-sizing: border-box;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: background 0s linear, -webkit-transform 0s linear;
+  transition: transform 0s linear, background 0s linear;
+  transition: transform 0s linear, background 0s linear, -webkit-transform 0s linear;
+  -webkit-transform-origin: 0 0.6em 0 !important;
+          transform-origin: 0 0.6em 0 !important;
+  -webkit-transform-style: preserve-3d !important;
+          transform-style: preserve-3d !important;
+  z-index: 20;
+}
+.digit-top.r {
+  transition: background 0.2s linear, -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear, background 0.2s linear;
+  transition: transform 0.2s linear, background 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: rotateX(90deg);
+          transform: rotateX(90deg);
+  background: #cccccc;
+}
+
+.digit-top2 {
+  visibility: hidden;
+  position: absolute;
+  height: 50%;
+  left: 0;
+  right: 0;
+  background: #cccccc;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  line-height: 0em !important;
+  top: 50% !important;
+  bottom: auto !important;
+  padding-top: 0;
+  padding-bottom: 0.1em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  border-bottom-left-radius: 0.1em;
+  border-bottom-right-radius: 0.1em;
+  overflow: hidden;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  transition: background 0s linear, -webkit-transform 0s linear;
+  transition: transform 0s linear, background 0s linear;
+  transition: transform 0s linear, background 0s linear, -webkit-transform 0s linear;
+  -webkit-transform: rotateX(-90deg);
+          transform: rotateX(-90deg);
+  -webkit-transform-style: preserve-3d !important;
+          transform-style: preserve-3d !important;
+  -webkit-transform-origin: 0 0 0 !important;
+          transform-origin: 0 0 0 !important;
+  z-index: 20;
+}
+.digit-top2.r {
+  visibility: visible;
+  transition: background 0.2s linear 0.2s, -webkit-transform 0.2s linear 0.2s;
+  transition: transform 0.2s linear 0.2s, background 0.2s linear 0.2s;
+  transition: transform 0.2s linear 0.2s, background 0.2s linear 0.2s, -webkit-transform 0.2s linear 0.2s;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  background: #fff;
+}
+
+.digit-bottom {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  overflow: hidden;
+  background: #fff;
+  height: 50%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+  line-height: 0em;
+  padding-top: 0;
+  padding-bottom: 0.1em;
+  padding-left: 0.1em;
+  padding-right: 0.1em;
+  border-bottom-left-radius: 0.1em;
+  border-bottom-right-radius: 0.1em;
+  box-sizing: border-box;
+  text-align: center;
+  transition: none;
+}
+.digit-bottom.r {
+  transition: background 0.2s linear;
+  background: #cccccc;
+}
+
+.flipper-digit:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  top: 50%;
+  display: block;
+  z-index: 30;
+  left: 0;
+  right: 0;
+}
+
+.flipper-dark {
+  color: #fff;
+}
+.flipper-dark .flipper-delimiter {
+  color: #333;
+}
+.flipper-dark .digit-next {
+  background: #333;
+}
+.flipper-dark .digit-top {
+  background: #333;
+}
+.flipper-dark .digit-top.r {
+  background: black;
+}
+.flipper-dark .digit-top2 {
+  background: black;
+}
+.flipper-dark .digit-top2.r {
+  background: #333;
+}
+.flipper-dark .digit-bottom {
+  background: #333;
+}
+
+.flipper-dark-labels .flipper-group label {
+  color: #333;
+}
+
+
+    </style>
 <body>
   <section class="menu cid-qTkzRZLJNu" once="menu" id="menu1-0">
 
@@ -55,25 +329,55 @@
                         Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link link text-secondary display-4" href="page1.html" aria-expanded="false">Catálogo de parcelas</a>
-                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="page4.html"><span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Inicio sesión</a></li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="page4.html">Registro</a></li></ul>
+                    <a class="nav-link link text-secondary display-4" href="index.html" aria-expanded="false">Catálogo de parcelas</a>
+                </li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="index.html"><span class="mobi-mbri mobi-mbri-login mbr-iconfont mbr-iconfont-btn"></span>Inicio sesión</a></li><li class="nav-item"><a class="nav-link link text-secondary display-4" href="index.html">Registro</a></li></ul>
             
         </div>
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.info/n">free simple website templates</a></section><section class="header10 cid-rRNj0QgYWr mbr-fullscreen" id="header10-3">
+<section class="engine"><a href="index.html">free simple website templates</a></section><section class="header10 cid-rRNj0QgYWr mbr-fullscreen" id="header10-3">
 
     
 
     
 
+
+    
     <div class="container">
-        <div class="media-container-column mbr-white p-5 align-left col-lg-8 col-md-10">
-            <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-2">BIENVENIDOS A ECORENTER</h1>
+       <div class="row">
+        <div class="col-lg-6 col-md-6">
+            <h1  style="color:black; text-align:center;">PRÓXIMAMENTE!!!</h1>
             
-            <p class="mbr-text pb-3 mbr-fonts-style display-5">Nuestro principal objetivo es que comas salud. Podrás tener tu propio huerto ecológico desde 30 € al mes…</p>
-            <div class="mbr-section-btn"><a class="btn btn-md btn-white-outline display-4" href="https://mobirise.co">VER CATÁLOGO DE PARCELAS</a></div>
+            
+            <div class="flipper flipper-dark flipper-dark-labels" data-reverse="true" data-datetime="2020-05-13 00:00:00" data-template="dd|HH|ii|ss" data-labels="Días|Horas|Minutos|Segundos" id="modalFlipper"></div>
+            
+        </div>
+        <div class="col-lg-6 col-md-6" style="background-color: #c1c7c7a1; color:back;">
+            <h1  style=" text-align:center;padding-top: 10px;">¿Qué hacemos?</h1>
+            
+            <p style="font-weight: bold; color:back;">
+                Conectamos amantes de los productos ecológicos con particulares que tienen parcelas sin cultivar.Nosotros nos encargamos de buscarte uno, solo necesitas entusiasmo por cultivar.
+            </p>
+            <h1  style="text-align:center; color:back; ">¿Qué ventajas tienes?</h1>
+            
+           
+                <ul style="font-weight: bold; color:back;">
+                    <li >
+                        Localiza tu huerto más cercano.
+                    </li>
+                    <li>
+                        Pago seguro y automático.
+                    </li>
+                    <li>
+                        Disfruta de nuestros ofertas y paquetes.
+                    </li>
+                </ul>
+           
+            
+          
+            
+        </div>
         </div>
     </div>
 
